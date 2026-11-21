@@ -54,3 +54,14 @@ The onboarding flow is a two-step wizard:
 It checks that the visitor is signed in, detects an existing active workspace, and calls the Phase 1 `create_restaurant_workspace` RPC. On success it sends the owner to the dashboard.
 
 The RPC is expected to exist from the Phase 1 SQL migration. Test with a new Supabase auth user. If email confirmation is enabled, confirm the email and log in before onboarding.
+
+
+## Phase 5 — Owner dashboard
+- Responsive owner dashboard layout with sidebar navigation
+- Loads signed-in user's active organization membership
+- Loads organization name and its registered outlets from Supabase
+- Supports selecting an outlet when multiple outlets exist
+- Shows honest placeholders for sales/orders/team metrics until those modules are connected
+- Includes navigation to POS, orders, menu, inventory, staff, reports and settings
+
+The dashboard expects `organization_members(user_id, organization_id, status)`, `organizations(id, name)`, and `locations(id, organization_id, name, city, created_at)` as used by the existing Phase 1/4 project code. Verify RLS permits the signed-in member to read their own membership and organization/location records.
