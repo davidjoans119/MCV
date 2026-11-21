@@ -67,3 +67,19 @@ a { color:inherit; text-decoration:none; }
 
 .pos-grid { display:grid; grid-template-columns:minmax(0,1.7fr) minmax(260px,.8fr); gap:18px; }
 @media(max-width:760px){.pos-grid{grid-template-columns:1fr}.nav{height:auto;min-height:76px;padding-top:12px;padding-bottom:12px;align-items:flex-start;gap:12px;flex-direction:column}.nav-links{width:100%}}
+
+.onboarding-card { width:min(500px,100%); }
+.onboarding-brand { display:flex;align-items:center;gap:10px;font-weight:800;margin-bottom:24px; }
+.progress-track {height:5px;background:#edf1ee;border-radius:20px;overflow:hidden;margin-bottom:12px}
+.progress-track span {display:block;height:100%;background:var(--green);border-radius:20px;transition:width .2s}
+.step-label {font-size:10px;font-weight:800;letter-spacing:.12em;color:var(--muted);margin-bottom:22px}
+.onboard-icon {width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:#edf6f0;color:var(--green);margin-bottom:18px}
+.onboarding-card h1 {font-size:30px;line-height:1.1;letter-spacing:-.05em;margin:0 0 9px}
+.account-chip {padding:12px 13px;border:1px solid var(--line);background:#fafcfb;border-radius:11px;font-size:12px;color:var(--muted);margin:18px 0}
+.account-chip strong {color:var(--ink);margin-left:4px}
+.optional {font-weight:400;color:var(--muted)}
+.input-with-icon {position:relative;display:flex;align-items:center}
+.input-with-icon svg {position:absolute;left:13px;color:var(--muted)}
+.input-with-icon input {padding-left:39px}
+.wizard-actions {display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.onboard-foot {font-size:11px;color:var(--muted);text-align:center;margin:24px 0 0}

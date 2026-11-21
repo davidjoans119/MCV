@@ -44,3 +44,13 @@ Run the MCV-OS Phase 1 SQL in a fresh Supabase development project first. The on
 - Enable email verification for real accounts.
 - Review RLS policies and test with two separate users before production.
 - This starter uses Supabase browser auth. For a production launch, add server-side session handling, rate limiting, robust password recovery flow, monitoring and policy review.
+
+
+## Phase 4 — Restaurant onboarding
+The onboarding flow is a two-step wizard:
+1. Restaurant/business identity
+2. First outlet name and optional city
+
+It checks that the visitor is signed in, detects an existing active workspace, and calls the Phase 1 `create_restaurant_workspace` RPC. On success it sends the owner to the dashboard.
+
+The RPC is expected to exist from the Phase 1 SQL migration. Test with a new Supabase auth user. If email confirmation is enabled, confirm the email and log in before onboarding.
