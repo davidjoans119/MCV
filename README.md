@@ -65,3 +65,15 @@ The RPC is expected to exist from the Phase 1 SQL migration. Test with a new Sup
 - Includes navigation to POS, orders, menu, inventory, staff, reports and settings
 
 The dashboard expects `organization_members(user_id, organization_id, status)`, `organizations(id, name)`, and `locations(id, organization_id, name, city, created_at)` as used by the existing Phase 1/4 project code. Verify RLS permits the signed-in member to read their own membership and organization/location records.
+
+
+## Phase 6 — Menu, POS and order management
+1. Run `supabase/migrations/0002_phase6_pos_orders.sql` in Supabase SQL Editor.
+2. Deploy the updated Next.js project.
+3. Sign in and open Menu. Add menu categories/items and prices.
+4. Open POS. Select an outlet, add items, choose order type and payment method, then create the order.
+5. Open Orders to review the latest 100 orders and update preparation status.
+
+The SQL creates menu categories/items, restaurant orders and order-item snapshot tables; enables RLS; and adds the `create_restaurant_order` RPC so order creation and line items are committed together. Payment is recorded as a method/status only; this does not process a UPI/card transaction or integrate a payment gateway.
+
+Before production use, test the policies with two different restaurant accounts and review staff role restrictions. Current policies allow any active organization member to manage menu data and update order statuses; role-based permissions are a later hardening step.
