@@ -1,3 +1,3 @@
-import { Header } from "@/components/header";
-import { AuthForm } from "@/components/auth-form";
-export default function SignupPage(){return <><Header/><AuthForm mode="signup"/></>}
+import { AppNav } from "@/components/app-nav";
+import { DashboardClient } from "@/components/dashboard-client";
+export default function DashboardPage(){return <div className="app-shell"><AppNav/><DashboardClient/></div>}

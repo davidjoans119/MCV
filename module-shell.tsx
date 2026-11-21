@@ -1,0 +1,2 @@
+import { AppNav } from "./app-nav";
+export function ModuleShell({title,subtitle,children}:{title:string;subtitle:string;children:React.ReactNode}){return <div className="app-shell"><AppNav/><main className="container dashboard"><div style={{marginBottom:26}}><span className="eyebrow">MCV-OS workspace</span><h1 style={{fontSize:38,letterSpacing:"-.05em",margin:"14px 0 6px"}}>{title}</h1><p className="muted">{subtitle}</p></div>{children}</main></div>}
