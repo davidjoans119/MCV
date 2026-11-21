@@ -77,3 +77,14 @@ The dashboard expects `organization_members(user_id, organization_id, status)`, 
 The SQL creates menu categories/items, restaurant orders and order-item snapshot tables; enables RLS; and adds the `create_restaurant_order` RPC so order creation and line items are committed together. Payment is recorded as a method/status only; this does not process a UPI/card transaction or integrate a payment gateway.
 
 Before production use, test the policies with two different restaurant accounts and review staff role restrictions. Current policies allow any active organization member to manage menu data and update order statuses; role-based permissions are a later hardening step.
+
+
+## Phase 7 — Kitchen Display System
+- New `/kitchen` kitchen board
+- Displays active tickets grouped into New, Preparing and Ready columns
+- Shows order number, order type, creation time, item quantities and kitchen notes
+- Advances tickets: placed → preparing → ready → completed
+- Refreshes every 10 seconds and includes a manual refresh button
+- Uses the existing Phase 6 `restaurant_orders` and `restaurant_order_items` tables
+
+No additional SQL migration is required for this basic KDS. The signed-in member must be allowed to read order items and update orders under the Phase 6 RLS policies. This is periodic refresh, not realtime push. For production, add role-based kitchen access and realtime subscriptions.
